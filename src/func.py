@@ -8,7 +8,7 @@ def get_operations(operations):
     :operations: Путь к файлу с операциями в формате JSON
     :return: Список операций без пустых словарей
     """
-    with open(operations, 'r') as file:
+    with open(operations, 'r', encoding='utf-8') as file:
         data = json.load(file)
     operations_list = [operation for operation in data if operation]
     return operations_list
@@ -28,6 +28,12 @@ def sort_day_time(operations):
     )
     return operations
 
+def sorted_executed(operations):
+    executed = []
+    for i in operations:
+        if i['state'] == 'EXECUTED':
+            executed.append(i)
+    return executed
 
 def hide_symbols(last_operations, hide="*", step=4):
     """
