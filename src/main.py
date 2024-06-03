@@ -6,8 +6,10 @@ def main():
     operations_dict = func.get_operations("../operations.json")
     # Сортировка операций по дате и времени
     sorted_operations = func.sort_day_time(operations_dict)
+    # Сортировка по выполненым(EXECUTED) операциям
+    sorted_executed = func.sorted_executed(sorted_operations)
     # Маскировка номеров карт и счетов
-    hide_symbols = func.hide_symbols(sorted_operations, "*", 4)
+    hide_symbols = func.hide_symbols(sorted_executed, "*", 4)
 
     # Вывод первых 5 операций
     for i in hide_symbols[:5]:
