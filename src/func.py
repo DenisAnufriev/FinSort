@@ -29,6 +29,12 @@ def sort_day_time(operations):
     return operations
 
 def sorted_executed(operations):
+    """
+    Фильтрует список операций, возвращая только те операции, которые были выполнены (имеют состояние "EXECUTED").
+
+    :param operations: Список словарей, представляющих операции. Каждая операция должна содержать ключ 'state'.
+    :return: Список операций, у которых состояние "EXECUTED".
+    """
     executed = []
     for i in operations:
         if i['state'] == 'EXECUTED':
